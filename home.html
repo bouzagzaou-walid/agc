@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WELCOME OUMAIMA</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<img src="images.png">
+	</header>
+	<h3>HELLO ADMIN</h3>
+	<form method="post" action="">
+		<table>
+		<tr><td>
+		<label>Matricule admin : </label></td><td><input type="text" id="matricule"></br></td></tr>
+		<tr><td><label>password : </label></td><td><input type="password" id="MP"></br></td></tr>
+		<tr><td><input type="submit" value="connect" id="submit"></td></tr>
+		
+	</form>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+    authDomain: "tms-agc.firebaseapp.com",
+    databaseURL: "https://tms-agc.firebaseio.com",
+    projectId: "tms-agc",
+    storageBucket: "tms-agc.appspot.com",
+    messagingSenderId: "1003552407947",
+    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+    measurementId: "G-WNLBJZWG49"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  function authentificationFire (db,admin){
+  	var matricule = admin.matricule;
+  	var MP = admin.MP;
+  	var adm = 'administrateur';
+    const usersRef = db.collection('admin').doc(adm);
+    if (usersRef.matricule == matricule || usersRef.MP == MP) {
+    	return true;
+    }
+    return false;
+  }
+	function authentification (db) {
+		var admin = {
+            matricule: document.getElementById("matricule").value,
+            MP: document.getElementById("MP").value
+        };
+        var result = authentificationFire(db, admin);
+        return result;
+	}
+	document.getElementById("submit").addEventListener("click", function (event) {
+        event.preventDefault();
+        authentification(db);
+
+    } )
+ 
+
+  </script>
+</body>
+</html>

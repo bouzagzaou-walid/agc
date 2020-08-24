@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajouter</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<img src="images.png">
+		<div class="head">
+		<ul>
+		<li><a href="ajouter.html">ajouter</a></li>
+		<li><a href="modifier.html">modifier</a></li>
+		<li><a href="supprimer1.html">supprimer</a></li>
+		<li><a href="ajouterh.html">ajouter horaire</a></li>
+    <li><a href="supprimerh.html">supprimer horaire</a></li>
+		<li><a href="gerer.html">gérer</a></li>
+		</ul>
+		</div>
+	</header>
+	<form method="post" action="">
+		<table>
+		<tr><td><label>MATRICULE : </label></td><td><input type="text" name="MATRICULE" id="matricule"></td></tr>
+		<tr><td><label>NOM : </label></td><td><input type="text" id="nom" name="NOM"></td></tr>
+		<tr><td><label>PRENOM : </label></td><td><input type="text" name="PRENOM" id="prenom"></td></tr>
+		<tr><td><label>DEPARTEMENT : </label></td><td>
+			<select name="DEPARTEMENT" id="departement">
+				<option value="admi">admi</option>
+				<option value="AVO">AVO</option>
+				<option value="cariste">cariste</option>
+				<option value="assemblage">assemblage</option>
+				<option value="cut.print">cut.print</option>
+				<option value="is fin">is fin</option>
+				<option value="feuilleté.qua">feuilleté.qua</option>
+				<option value="str">str</option>
+				<option value="four">four</option>
+				<option value="trempé">trempé</option>
+				<option value="LOGISTIQUE">LOGISTIQUE</option>
+				<option value="logistique trempé">logistique trempé</option>
+				<option value="logistique AVO">logistique AVO</option>
+				<option value="LABO.QUALITE">LABO.QUALITE</option>
+				<option value="menage">menage</option>
+				<option value="MAINTENANCE Lemlih">MAINTENANCE lemlih</option>
+				<option value="MAINTENANCE Layati">MAINTENANCE layati</option>
+				<option value="securité">securité</option>
+				<option value="Tooling">Tooling</option>
+				<option value="sous traitant">sous traitant</option>
+			</select></td></tr>
+		<tr><td><label>EQUIPE : </label></td><td>
+			<select name="EQUIPE" id="equipe">
+				<option value="A">EQUIPE A</option>
+				<option value="B">EQUIPE B</option>
+				<option value="C">EQUIPE C</option>
+				<option value="D">EQUIPE D</option>
+				<option value="E">EQUIPE E</option>
+				<option value="ND">ND</option>
+			</select></td></tr>
+		<tr><td><label>POINT DE RAMASSAGE : </label></td><td>
+			<SELECT name="POINT" id="point">
+				<option value="AaswakEssalam ">Aaswak Essalam </option>
+				<option value="Ain Sbaa 20 Aout">Ain Sbaa 20 Aout</option>
+				<option value="Agence Taysir Al Wafaa">Agence Tayssir Al Wafaa </option>
+				<option value="Alamana tahouna">Alamana tahouna</option>
+				<option value="Almassab">Almassab</option>
+				<option value="Aliance Darna">Aliance Darna</option>
+				<option value="Aliance Darna Terrain">Aliance Darna Terrain</option>
+				<option value="Aliance Jardin">Aliance Jardin</option>
+				<option value="Aliance Mosquée Arrêt Bus 26">Aliance Mosquée Arrêt Bus "26"</option>
+				<option value="Aliance RP">Aliance RP</option>
+				<option value="Aliance Jarfain">Aliance Jarfain</option>
+				<option value="Ancien MC">Ancien MC</option>
+				<option value="Arrondissement De Police 8ème">Arrondissement De Police 8ème</option>
+				<option value="ASSAM">ASSAM</option>
+				<option value="AXA Assurance Birrami">AXA Assurance Birrami</option>
+				<option value="Bab Fes">Bab Fes</option>
+				<option value="B.P Massira">B.P Al Massira</option>
+				<option value="B.P Ouled Arfa">B.P Ouled Arfa</option>
+				<option value="B.P Sidi Yahya">B.P Sidi Yahya</option>
+				<option value="BIM Terminus 12">Bim Terminus 12</option>
+				<option value="Birami Lahrichi">Birami Lahrichi</option>
+				<option value="BMCE Atlas">BMCE Atlas</option>
+				<option value="BMCE Hay Irchad">BMCE Hay Irchad</option>
+				<option value="café Dimachq Ouled Oujih">Café Dimachiq" Ouled Oujih </option>
+				<option value="café Aalam">Café Aalam </option>
+				<option value="café Angelina">Café Angelina</option>
+				<option value="café Bilal Sidi Yahya">Café Bilal Sidi Yahya</option>
+				<option value="Café COCOLIKOU Route mehdia">Café COCOLIKOU Route mehdia </option>
+				<option value="café Damas">café Damas</option>
+				<option value="Café Dawliz">Café Dawliz</option>
+				<option value="Café Doha">Café Doha</option>
+				<option value="Café Elaroubi Sidi Yahya">Café Elaroubi Sidi Yahya</option>
+				<option value="Café Hsina">Café Hsina</option>
+				<option value="Café Iskandarya">Café Iskandarya</option>
+				<option value="Café Krimo Ouled Aarfa">Café Krimo Ouled Aarfa</option>
+				<option value="Café Lina Ooled Oujih">Café Lina Ouled Oujih</option>
+				<option value="Café Mandour Rue Irchad">Café Mandour Rue Irchad</option>
+				<option value="café MALORCA">Café MALORCA </option>
+				<option value="Café Moussaoui">Café Moussaoui</option>
+				<option value="Café Omar Ismailia">Café Omar Ismailia</option>
+				<option value="café ROMANOVA">Café ROMANOVA</option>
+				<option value="café Trefele">Café Trefele</option>
+				<option value="Chateau">Chateau</option>
+				<option value="CIH Banque">CIH Banque</option>
+				<option value="Cimetrierie Syad">Cimetrierie Syad</option>
+				<option value="Cinema Riad">Cinema Riad</option>
+				<option value="Cité Universitaire">Cité Universitaire</option>
+				<option value="Collége 20 Aout Ain Sebaa">Collége 20 Aout Ain Sebaa </option>
+				<option value="Croissant Chaud">Croissant Chaud</option>
+				<option value="DAR EL GADARI">DAR EL GADARI</option>
+				<option value="Doha">Doha</option>
+				<option value="Doha Epicerie 1">Doha Epicerie 1</option>
+				<option value="Doha Epicerie 2">Doha Epicerie 2</option>
+				<option value="Doha Café Rachid">Doha Café Rachid</option>
+				<option value="Doha Groupe 103">Doha Groupe 103</option>
+				<option value="Doha Groupe 90">Doha Groupe 90</option>
+				<option value="Doha Hammam Othman">Doha Hammam Othman</option>
+				<option value="Double Voie Alliance">Double Voie Alliance</option>
+				<option value="Douar Bni Fdel Sidi Yahia">Douar Bni Fdel Sidi Yahia
+</option>
+				<option value="DWAGHER">DWAGHER</option>
+				<option value="Ecole Hamane Elfatouaki">Ecole Hamane Elfatouaki</option>
+				<option value="Ecole Elkhawarizmi">Ecole Elkhawarizmi</option>
+				<option value="Elmassab">Elmassab</option>
+				<option value="Gare">Gare</option>
+				<option value="Grand mosquée Fouarat">Grand mosquée Fouarat</option>
+				<option value="Hammam Hamza Kasbah">Hammam Hamza Kasbah</option>
+				<option value="Hammam OTHAMNE Kasbah">Hammam OTHAMNE Kasbah</option>
+				<option value="Hammam Zarouk">Hammam Zarouk</option>
+				<option value="Hancha Jnan 3">Hancha Jnan 3</option>
+				<option value="Hopital Ain Sebaa Nadi Niswi">Hopital Ain Sebaa Nadi Niswi</option>
+				<option value="Hotel Amal Sidi Yahya">Hotel Amal Sidi Yahya</option>
+				<option value="Ifmia">Ifmia</option>
+				<option value="Itihad">Itihad</option>
+				<option value="Itto">Itto</option>
+				<option value="Kasbah">Kasbah</option>
+				<option value="Kasbah Koumissaria">Kasbah Koumissaria</option>
+				<option value="Kasbah Terminus">Kasbah Terminus</option>
+				<option value="Kasbah Terminus 27">Kasbah Terminus 27</option>
+				<option value="Kasbah Terminus 9">Kasbah Terminus 9</option>
+				<option value="Kennedi">Kennedi</option>
+				<option value="La Poste Sidi Yahya">La Poste Sidi Yahya</option>
+				<option value="Lavage Barikat">Lavage Barikat</option>
+				<option value="Maroc Telecom Sidi Yahya">Maroc Telecom Sidi Yahya</option>
+				<option value="Meditel">Meditel</option>
+				<option value="Metropol">Metropol</option>
+				<option value="Mimousa CIH">Mimousa CIH</option>
+				<option value="Mizan">Mizan</option>
+				<option value="Molhaka M11">Molhaka M11</option>
+				<option value="Mosquée Alghoufran">Mosquée Alghoufran</option>
+				<option value="Mosquée Badr arrèt Bus">Mosquée Badr arrèt Bus</option>
+				<option value="Mosquée Alkouds">Mosquée Alkouds</option>
+				<option value="Mosquée Hadadah">Mosquée Hadadah</option>
+				<option value="Mosquée Rayan">Mosquée Rayan</option>
+				<option value="Nadi Niswi Ain Sbae">Nadi Niswi Ain Sbae</option>
+				<option value="Oulad earfa">Oulad earfa</option>
+				<option value="Oulad Bourahma">Oulad Bourahma</option>
+				<option value="Pharmacie adoha">Pharmacie adoha</option>
+				<option value="Pharmacie Alhouda Hancha">Pharmacie Alhouda Hancha</option>
+				<option value="Pharmacie Alhouda Jnan">Pharmacie Alhouda Jnan</option>
+				<option value="Pharmacie Atlantic Lahmassis">Pharmacie Atlantic Lahmassis</option>
+				<option value="Pharmacie Azharoun">Pharmacie Azharoun</option>
+				<option value="Pharmacie BASSIM HANCHA">Pharmacie BASSIM HANCHA</option>
+				<option value="Pharmacie Mabrouka">Pharmacie Mabrouka</option>
+				<option value="Pharmacie Almaghrib alarabi">Pharmacie Almaghrib alarabi</option>
+				<option value="Pharmacie Mimousa">Pharmacie Mimousa</option>
+				<option value="Pharmacie Taybia">Pharmacie Taybia</option>
+				<option value="Pharmacie Romanova Syed 2">Pharmacie Romanova Syed 2</option>
+				<option value="Poid Lourd Arret Bus">Poid Lourd Arret Bus</option>
+				<option value="Poste Sidi Yahya">Poste Sidi Yahya</option>
+				<option value="Préfecture De Police Kasbah">Préfecture De Police Kasbah</option>
+				<option value="R.P Elharati">R.P Elharati</option>
+				<option value="R.P Aliance">R.P Aliance</option>
+				<option value="R.P Ouled Bourehma">R.P Ouled Bourehma</option>
+				<option value="R.P El Bachaouia">R.P El Bachaouia</option>
+				<option value="R.P El Haouzya">R.P El Haouzya</option>
+				<option value="R.P La cité">R.P La cité</option>
+				<option value="R.P Elbachawya">R.P Elbachawya</option>
+				<option value="Restaurant Luigi">Restaurant Luigi</option>
+				<option value="Riad Ancienne Cinema">Riad Ancienne Cinema</option>
+				<option value="Salle Abla">Salle Abla</option>
+				<option value="Salle Couverte">Salle Couverte</option>
+				<option value="Sidi Sliman">Sidi Sliman</option>
+				<option value="Sidi YAHYA">Sidi YAHYA</option>
+				<option value="SI TAYBI">SI TAYBI</option>
+				<option value="Station Ziz">Station Ziz</option>
+				<option value="Societé générale TEHRONE">Societé générale TEHRONE</option>
+				<option value="Stop Syad">Stop Syad</option>
+				<option value="Sureté National">Sureté National</option>
+				<option value="Tahouna Alamana">Tahouna Alamana</option>
+				<option value="Taissir Doha">Taissir Doha</option>
+				<option value="Terminus 26 Aliance">Terminus 26 Aliance</option>
+				<option value="Terrain Hancha Birami">Terrain Hancha Birami</option>
+				<option value="Tihad">Tihad</option>
+				<option value="Yazaki km 9">Yazaki km 9</option>
+				<option value="DF">DF</option>
+
+			</SELECT></td></tr>
+			<tr><td><label>TRAJET : </label></td><td>
+			<select name="TRAJET" id="trajet">
+				<option value="N1">N1</option>
+				<option value="N2">N2</option>
+				<option value="N3 A">N3 A</option>
+				<option value="N4">N4</option>
+				<option value="N5 A">N5 A</option>
+				<option value="N6">N6</option>
+				<option value="N7">N7</option>
+				<option value="N8 A">N8 A</option>
+				<option value="N10 A">N10 A</option>
+				<option value="N10 B">N10 B</option>
+				<option value="N11">N11</option>
+				<option value="N12">N12</option>
+				<option value="DF">DF</option>
+				
+			</select></td></tr>
+		<tr><td><input type="SUBMIT" name="SUBMIT" id="submit" value="ENREGISTRER"></td>
+		</table>
+	</form>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+    authDomain: "tms-agc.firebaseapp.com",
+    databaseURL: "https://tms-agc.firebaseio.com",
+    projectId: "tms-agc",
+    storageBucket: "tms-agc.appspot.com",
+    messagingSenderId: "1003552407947",
+    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+    measurementId: "G-WNLBJZWG49"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  
+  function verifierInput(personne) {
+        var matricule = personne.matricule;
+        var nom = personne.nom;
+        var prenom = personne.prenom;
+        var departement = personne.departement;
+        var equipe = personne.equipe;
+        var ramassage = personne.ramassage;
+        var trajet = personne.trajet;
+        if (!matricule || !prenom || !nom || !departement || !equipe || !ramassage || !trajet ) {
+            return false;
+        }
+        // check if it is a positive number
+
+        return true;
+    }
+    function ajouterFirestore(db, personne) {
+        var matricule = personne.matricule;
+        const usersRef = db.collection('personne').doc(matricule);
+
+        usersRef.get()
+        .then((docSnapshot) => {
+            if (docSnapshot.exists) {
+                alert("Matricule Error");
+            } else {
+                var prenom = personne.prenom;
+                var nom = personne.nom; 
+                var departement = personne.departement;
+        		var equipe = personne.equipe;
+        		var ramassage = personne.ramassage;
+        		var trajet = personne.trajet;
+                usersRef.set({
+                    prenom: personne.prenom,
+                    nom: personne.nom,
+                    departement: personne.departement,
+					equipe: personne.equipe,
+					ramassage: personne.ramassage,
+					trajet: personne.trajet
+                })
+                .then(function() {
+                    console.log("Document written");
+                })
+                .catch(function(error) {
+                    console.error("Error adding document: ", error);
+                });
+            }
+        });
+    }
+    function ajouterPersonne(db) {
+
+        var personne = {
+            matricule: document.getElementById("matricule").value,
+            prenom: document.getElementById("prenom").value,
+            nom: document.getElementById("nom").value,
+            departement: document.getElementById("departement").value,
+            equipe: document.getElementById("equipe").value,
+            ramassage: document.getElementById("point").value,
+            trajet: document.getElementById("trajet").value
+
+            // add your fields
+        };
+
+        if(verifierInput(personne) == false) {
+            alert("Input Error");
+            return;
+        }
+        ajouterFirestore(db, personne);
+    } 
+    
+    // OnClick f Submit
+    document.getElementById("submit").addEventListener("click", function (event) {
+        event.preventDefault();
+        ajouterPersonne(db);
+    } )
+ 
+
+</script>
+
+</body>
+</html>

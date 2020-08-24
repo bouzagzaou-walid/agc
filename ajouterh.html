@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajouter point de ramassage</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<header>
+		<img src="images.png">
+	<ul>
+		<li><a href="ajouter.html">ajouter</a></li>
+    <li><a href="modifier.html">modifier</a></li>
+    <li><a href="supprimer1.html">supprimer</a></li>
+    <li><a href="ajouterh.html">ajouter horaire</a></li>
+    <li><a href="supprimerh.html">supprimer horaire</a></li>
+    <li><a href="gerer.html">gérer</a></li>
+        </ul>
+	</header>
+	<form method="post" action="">
+		<table>
+		<tr><td><label>id : </label></td><td><input type="text" id="id" name="ID"></td></tr>
+		<tr><td><label>horaire rentrée: </label></td><td><input type="time" id="horairer" name="HORAIRER"></td></tr>
+        <tr><td><label>horaire sortie: </label></td><td><input type="time" id="horaires" name="HORAIRES"></td></tr>
+
+			<tr><td><input type="SUBMIT" name="SUBMIT" id="submit" value="ENREGISTRER"></td>
+		</table>
+	</form>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+    authDomain: "tms-agc.firebaseapp.com",
+    databaseURL: "https://tms-agc.firebaseio.com",
+    projectId: "tms-agc",
+    storageBucket: "tms-agc.appspot.com",
+    messagingSenderId: "1003552407947",
+    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+    measurementId: "G-WNLBJZWG49"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  
+  function verifierInput(hor) {
+        var id = hor.id;
+        var horairer = hor.horairer;
+        var horaires = hor.horaires;
+
+        if (!id || !horairer || !horaires) {
+            return false;
+        }
+        return true;
+    }
+  function ajouterFirestore(db, hor) {
+        var id = hor.id;
+        const usersRef = db.collection('horaire').doc(id);
+
+        usersRef.get()
+        .then((docSnapshot) => {
+            if (docSnapshot.exists) {
+                alert("horaire existe déjà");
+            } else {
+                var id = hor.id;
+                var horairer = hor.horairer; 
+                var horaires = hor.horaires
+                usersRef.set({
+                    id: hor.id,
+                    horairer: hor.horairer,
+                    horaires: hor.horaires
+                })
+                .then(function() {
+                    console.log("Document written");
+                })
+                .catch(function(error) {
+                    console.error("Error adding document: ", error);
+                });
+            }
+        });
+    }
+    function ajouterPersonne(db) {
+
+        var hor = {
+            id: document.getElementById("id").value,
+            horairer: document.getElementById("horairer").value,
+            horaires: document.getElementById("horaires").value
+        };
+
+        if(verifierInput(hor) == false) {
+            alert("Input Error");
+            return;
+        }
+        ajouterFirestore(db, hor);
+    } 
+    
+    // OnClick f Submit
+    document.getElementById("submit").addEventListener("click", function (event) {
+        event.preventDefault();
+        ajouterPersonne(db);
+    } )
+    
+ 
+
+</script>
+</body>
+</html>

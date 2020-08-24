@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>supprimer</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<img src="images.png">
+		<div class="head">
+		<ul>
+		<li><a href="ajouter.html">ajouter</a></li>
+    <li><a href="modifier.html">modifier</a></li>
+    <li><a href="supprimer1.html">supprimer</a></li>
+    <li><a href="ajouterh.html">ajouter horaire</a></li>
+    <li><a href="supprimerh.html">supprimer horaire</a></li>
+    <li><a href="gerer.html">gérer</a></li>
+		</ul>
+		</div>
+		<form method="post" action="">
+			<label>MATRICULE : </label><input type="text" name="MATRICULE" id="matricule"></br>
+			<input type="SUBMIT" name="SUBMIT" value="supprimer" id="submit">
+		</form>
+		<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+    authDomain: "tms-agc.firebaseapp.com",
+    databaseURL: "https://tms-agc.firebaseio.com",
+    projectId: "tms-agc",
+    storageBucket: "tms-agc.appspot.com",
+    messagingSenderId: "1003552407947",
+    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+    measurementId: "G-WNLBJZWG49"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var db = firebase.firestore();
+  function suppfirestore(db, matricule) {
+        const usersRef = db.collection('personne').doc(matricule);
+
+        usersRef.get()
+        .then((docSnapshot) => {
+            if (docSnapshot.exists) {
+            	var confirmation = window.confirm("confirmer la suppression de : " + docSnapshot.data().nom +  " " + docSnapshot.data().prenom);
+            	if (confirmation==true) {
+            		usersRef.delete().then(function() {
+  		  console.log("Document successfully deleted!");
+			}).catch(function(error) {
+    	console.error("Error removing document: ", error);
+		}) } else {
+		console.log("you canceled")
+		}
+            	
+            } else {
+            	console.log("matricule ERROR")
+            }
+        });
+    }
+  function suppdoc(db){
+  	var matricule=document.getElementById("matricule").value
+  	suppfirestore(db,matricule);
+  };
+   document.getElementById("submit").addEventListener("click", function (event) {
+        event.preventDefault();
+        suppdoc(db);
+    } )
+ 
+
+  </script>
+</body>
+</html>
