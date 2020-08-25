@@ -12,17 +12,20 @@
 	<form method="post" action="">
 		<table>
 		<tr><td>
-		<label>Matricule admin : </label></td><td><input type="text" id="matricule"></br></td></tr>
+		<label>Matricule admin : </label></td><td><input type="email" id="email"></br></td></tr>
 		<tr><td><label>password : </label></td><td><input type="password" id="MP"></br></td></tr>
 		<tr><td><input type="submit" value="connect" id="submit"></td></tr>
 		
 	</form>
-	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+
 
 <script>
   // Your web app's Firebase configuration
@@ -38,29 +41,17 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  var db = firebase.firestore();
-  function authentificationFire (db,admin){
-  	var matricule = admin.matricule;
-  	var MP = admin.MP;
-  	var adm = 'administrateur';
-    const usersRef = db.collection('admin').doc(adm);
-    if (usersRef.matricule == matricule || usersRef.MP == MP) {
-    	return true;
-    }
-    return false;
-  }
-	function authentification (db) {
-		var admin = {
-            matricule: document.getElementById("matricule").value,
-            MP: document.getElementById("MP").value
-        };
-        var result = authentificationFire(db, admin);
-        return result;
-	}
+function authentifier (){
+  let email = document.getElementById("email").value;
+  let MP = document.getElementById("MP").value;
+  let auth = firebase.auth();
+  auth.signInWithEmailAndPassword(email, MP)
+  .then(function(){document.location.href="gerer.html";})
+  .catch(function(){alert("input ERROR");});
+}
 	document.getElementById("submit").addEventListener("click", function (event) {
         event.preventDefault();
-        authentification(db);
+        authentifier();
 
     } )
  
