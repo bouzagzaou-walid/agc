@@ -136,11 +136,12 @@ function save_horraire(db) {
                 });
             })
             .catch(function(error){
-                console.log("Error getting Document", error);
+                alert("Error getting Document", error);
             })
     }
 }
 function translat(hor){
+
     let heure;
     if (hor=='8:30'){
         heure=new Array("H.A", "morning", "half.day.morning");
@@ -156,21 +157,34 @@ function translat(hor){
     }
     return heure;
 }
-function calcule(db,hour,traj){
-    let n=0
-    let hor=translat(hour);
-    for (let i=0; i<hor.length; i++) {
-    db.collection('personne').where("horaire", "==", hor[i]).where("trajet", "==", traj)
+
+    function overAll(db,hour,traj){
+        var n=0;
+        db.collection('personne').where("horaire", "==", hour).where("trajet", "==", traj)
             .get()
             .then(function(querySnapshot){
                 querySnapshot.forEach(function(doc){
                     n++;
-                });
+                    
+                })
+
+                return n;
             })
             .catch(function(error){
                 console.log("Error getting Document", error);
-            })}
-            return n;
+            })
+    }
+function calcule(db,hour,traj){
+    
+    let hor=translat(hour);
+
+    let l=0;
+    hor.forEach(function(doc){
+            let a=overAll(db,doc,traj);
+            l=l+a;
+        })
+            console.log(l);
+            return l;
     }
 
 function tableau(db,horaires,trajets){
@@ -178,14 +192,22 @@ function tableau(db,horaires,trajets){
         let html_tr1 = document.createElement('tr');
         let html_td4 = document.createElement('td');
         html_td4.innerText=trajet[i];
-        html_td4.appendChild(html_tr1);
+        html_tr1.appendChild(html_td4);
         for (let j=0; j<4; j++) {
             let n=calcule(db,horaires[j],trajet[i]);
             let html_td3 = document.createElement('td');
             html_td3.innerText=horaires[j]+' '+n;
-                 html_td3.appendChild(html_tr1);
+                 html_tr1.appendChild(html_td3);
         }
         document.getElementById('tab').appendChild(html_tr1);
     }
-        
 }
+function checkUser(){
+    firebase.auth().onAuthStateChanged(function(firebaseUser){
+        if (firebaseUser) {
+    console.log(firebaseUser);
+}else{
+    console.log("you are not logged in");
+  }
+    });
+};
