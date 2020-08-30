@@ -2,9 +2,32 @@
 <html>
   <head>
     <title>gérer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="utf-8">
+    
   </head>
   <body>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    
+  <script src="js/gerer.js"></script>
+    <script type="text/javascript">
+            var firebaseConfig = {
+        apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+        authDomain: "tms-agc.firebaseapp.com",
+        databaseURL: "https://tms-agc.firebaseio.com",
+        projectId: "tms-agc",
+        storageBucket: "tms-agc.appspot.com",
+        messagingSenderId: "1003552407947",
+        appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+        measurementId: "G-WNLBJZWG49"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      checkUser();
+    </script>
     <header>
       <img src="images.png">
       <div class="head">
@@ -26,23 +49,12 @@
       
     </table>
 
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
-    <script src="js/gerer.js"></script>
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
-        authDomain: "tms-agc.firebaseapp.com",
-        databaseURL: "https://tms-agc.firebaseio.com",
-        projectId: "tms-agc",
-        storageBucket: "tms-agc.appspot.com",
-        messagingSenderId: "1003552407947",
-        appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
-        measurementId: "G-WNLBJZWG49"
-      };
 
-      firebase.initializeApp(firebaseConfig);
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>    
+  
+    <script>
+
       firebase.analytics();
       var db = firebase.firestore();
 
@@ -57,7 +69,7 @@
         populate_page(horaires);
       });
       let hor = new Array("8:30","16:30","00:30","20:30");
-      let trajet = new Array("N1","N2","N3 A","N4","N5 A","N5 B","N6","N7","N8 A","N8 B","N8 C","N10 A","N10 B","N11","N12");
+      let trajet = new Array("N1","N2","N3 A","N4","N5 A","N6","N7","N8 A","N10 A","N10 B","N11","N12");
 
       document.getElementById("submit").addEventListener("click", function(event){
         event.preventDefault();
