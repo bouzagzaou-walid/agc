@@ -13,6 +13,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
     
   <script src="js/gerer.js"></script>
+  <script src="js/checkUser.js"></script>
+
     <script type="text/javascript">
             var firebaseConfig = {
         apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
@@ -45,8 +47,21 @@
     <form method="post" action="#" id="form-update">
     </form>
     <button id="submit">Modifier</button>
-    <table id="tab">
-      
+    <table id="tab" >
+      <th>trajets</th>
+    <th>8h30</th>
+    <th>16h30</th>
+    <th>00h30</th>
+    <th>20h30</th>
+    </table>
+    <table id="tab1" >
+      <tr>
+    <th>trajets</th>
+    <th>8h30</th>
+    <th>16h30</th>
+    <th>00h30</th>
+    <th>20h30</th>
+      </tr>
     </table>
 
 
@@ -70,11 +85,13 @@
       });
       let hor = new Array("8:30","16:30","00:30","20:30");
       let trajet = new Array("N1","N2","N3 A","N4","N5 A","N6","N7","N8 A","N10 A","N10 B","N11","N12");
+      let trajet1 = new Array("groupe 1","groupe 2","groupe 3","doha","lgherb",)
 
       document.getElementById("submit").addEventListener("click", function(event){
         event.preventDefault();
         save_horraire(db);
         tableau(db,hor,trajet);
+        tableau1(db,hor,trajet1);
       })
       </script>
         </body>
