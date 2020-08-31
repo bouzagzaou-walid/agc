@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>WELCOME OUMAIMA</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 	<meta charset="utf-8">
 </head>
 <body>
@@ -41,14 +42,43 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
 function authentifier (){
   let email = document.getElementById("email").value;
   let MP = document.getElementById("MP").value;
   let auth = firebase.auth();
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(function() {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return auth.signInWithEmailAndPassword(email, MP)
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+
   auth.signInWithEmailAndPassword(email, MP)
-  .then(function(){document.location.href="gerer.html";})
+  .then(function(){
+        checkUser();
+})
   .catch(function(){alert("input ERROR");});
 }
+function checkUser(){
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+  console.log(user);
+  document.location.href="gerer.html";
+
+  } else {
+  console.log('out');
+    
+  }
+});}
 	document.getElementById("submit").addEventListener("click", function (event) {
         event.preventDefault();
         authentifier();
