@@ -2,9 +2,31 @@
 <html>
 <head>
 	<title>supprimer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  
 	<meta charset="utf-8">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+  <script src="js/checkUser.js"></script>
+<script type="text/javascript">
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
+    authDomain: "tms-agc.firebaseapp.com",
+    databaseURL: "https://tms-agc.firebaseio.com",
+    projectId: "tms-agc",
+    storageBucket: "tms-agc.appspot.com",
+    messagingSenderId: "1003552407947",
+    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
+    measurementId: "G-WNLBJZWG49"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  checkUser();
+</script>
 	<header>
 		<img src="images.png">
 		<div class="head">
@@ -28,18 +50,8 @@
 
 <script>
   // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyD8P74ee-htpMkrKaKrHuA6Or8l_Oc97s0",
-    authDomain: "tms-agc.firebaseapp.com",
-    databaseURL: "https://tms-agc.firebaseio.com",
-    projectId: "tms-agc",
-    storageBucket: "tms-agc.appspot.com",
-    messagingSenderId: "1003552407947",
-    appId: "1:1003552407947:web:a3378c7175e7175c7caf8e",
-    measurementId: "G-WNLBJZWG49"
-  };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
   firebase.analytics();
   var db = firebase.firestore();
 
@@ -64,6 +76,7 @@
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
   firebase.analytics();
   var db = firebase.firestore();
   function suppfirestore(db, id) {
@@ -75,11 +88,11 @@
             	var confirmation = window.confirm("confirmer la suppression de : " + docSnapshot.id) ;
             	if (confirmation==true) {
             		usersRef.delete().then(function() {
-  		  console.log("Document successfully deleted!");
+  		  alert("Document successfully deleted!");
 			}).catch(function(error) {
     	console.error("Error removing document: ", error);
 		}) } else {
-		console.log("you canceled")
+		alert("you canceled")
 		}
             	
             } else {
